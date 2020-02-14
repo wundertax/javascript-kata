@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# ItelliJ IDEs settings folders
+.idea/
+
+# macOS service files
+.DS_Store

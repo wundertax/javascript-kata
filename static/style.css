@@ -1,0 +1,42 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+#app {
+    flex: 1 0 auto;
+}
+
+.frame-conditions {
+    padding: 1em 2em;
+    font-size: 13px;
+    background: #3e3e3e;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.frame-conditions a {
+    color: #00c2b8;
+}
+
+.frame-conditions a:hover {
+    color: #b2eae6;
+}
+
+.frame-conditions a[href^=http]:after {
+    content: '↗';
+}
+
+.frame-conditions code {
+    background: #222222;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
