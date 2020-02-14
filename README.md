@@ -51,7 +51,7 @@ You have to implement an abstracted and simple library system.
 1. Your software should read all data from the given CSV files in a meaningful structure.
 
 2. Print out all books and magazines (could be a GUI, console, …) with all their details (with a meaningful output format).
-   > **Hint**: Do not call `printBooks(...)` first and then `printMagazines(...)` ;-)
+   > **Hint**: Do not call `printBooks(...)` first and then `printMagazines(...)` 😉
 
 3. Find a book or magazine by its `isbn`.
 
@@ -75,7 +75,7 @@ You have to implement an abstracted and simple library system.
 
 1. Get the code. There are several ways for it:
    1. With fork (makes it possible to preserve your work):
-      1. [Fork this repository](https://github.com/echocat/nodejs-kata-1/fork)
+      1. [Fork this repository](https://github.com/wundertax/javascript-kata/fork)
       2. Clone this fork to your computer:
          ```bash
          git clone <your github url>
@@ -84,12 +84,12 @@ You have to implement an abstracted and simple library system.
 
    2. Clone this repository with local branch:
       ```bash
-      git clone https://github.com/echocat/nodejs-kata-1.git
+      git clone https://github.com/wundertax/javascript-kata.git
       git checkout -b run-<yourname>-<iteration number>
       # Example: git checkout -b run-blaubaer-1
       ```
 
-   3. Just download it from [here](https://github.com/echocat/nodejs-kata-1/archive/master.zip)
+   3. Just download it from [here](https://github.com/wundertax/javascript-kata/archive/master.zip)
 
 2. Open in your favorite text editor/IDE.
    > **Hint**: We recommend [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea) or [Visual Studio Code](https://code.visualstudio.com).
@@ -102,32 +102,53 @@ You have to implement an abstracted and simple library system.
 
 ## FAQ
 
+##### How to run your application?
+
+1. Install dependencies:
+   ```bash
+   npm i
+   ```
+
+2. Run `start` script:
+   ```bash
+   npm run start
+   ```
+   
+   This command will run dev server. After this the project is accessible on [http://localhost:9000/](http://localhost:9000/)
+
 ##### What's the structure of the boilerplate?
 
-> **Important!** frontend libraries and framewors are not included. You have to install and include library/framework that you want to use manually.
+> **Important!** `react` and `react-dom` are already included in `package.json`. If you want to use other libraries/frameworks, you have to install and include them manually.
 
-`react` and `react-dom` are already included in `package.json`.
+1. [`webpack`](https://webpack.js.org/) for building and bundling:
+   * `.js` and `.css` files work out of the box
+   * entry point is `src/index.js` file
+   * bundle is being written in `dist/main.js`
 
-This kata comes with baked-in preconfigured `webpack` for building:
-* `.js` and `.css` files work out of the box
-* entry point is `src/index.js` file
-* bundle is being written in `dist/main.js`
+2. [`jest`](https://jestjs.io/) for testing.
 
-Used test suite – `jest`.
+3. [`eslint`](https://eslint.org/) for code checking.
 
-Also, `webpack-dev-server` is included for easier hacking. By default, it's configured to serve content of `dist` and `data` folders. If you run server, CSV files are gonna be available from the root, e.g. `data/authors.csv` will be served over [http://localhost:9000/authors.csv](http://localhost:9000/authors.csv).
+3. [`webpack-dev-server`](https://webpack.js.org/configuration/dev-server/) for hacking:
+   * configured to serve content of `dist`, `data` and `static` folders. If you run server, CSV files are gonna be available from the root, e.g. `data/authors.csv` will be served over [http://localhost:9000/authors.csv](http://localhost:9000/authors.csv)
+   * supports live reload
 
-And last (but not least): `babel` with preconfigured `preset-env` and `preset-react`.
+4. [`babel`](https://babeljs.io/) for code transpiling:
+   * preconfigured `preset-env` and `preset-react`
 
 > **Hint:** if you prefer using another build tool/bundler/test suite/etc: feel free to modify whatever you need.
 
-##### How to run your application?
+##### How to lint your code?
 
+For code check:
 ```bash
-npm run start
+npm run lint
 ```
 
-This command will run dev server. After this the project is accessible on [http://localhost:9000/](http://localhost:9000/)
+To fix the linting errors:
+```bash
+npm run lint:fix
+```
 
 ##### How to run your tests?
 
