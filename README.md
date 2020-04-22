@@ -27,7 +27,7 @@ You have to implement an abstracted and simple library system.
    **BUT:** You are not allowed to do [pair programming](https://en.wikipedia.org/wiki/Pair_programming).
    **AND** If you have already done this kata before to have a look at your previous implementation.
 
-4. Develop your code based on Node.js language level 8.
+4. Develop your code based on [ECMAScript 2018 (ES2018)](http://www.ecma-international.org/ecma-262/9.0/index.html).
 
 5. Keep the following priorities in mind while you implementing - in the mentioned order:
    1. Code quality
