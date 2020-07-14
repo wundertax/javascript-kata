@@ -2,6 +2,7 @@ import React from "react";
 
 const Table = ({ data }) => {
   const keysArr = Object.keys(data[0]);
+  console.log(keyArr);
   //   const dataMap = new Map();
   //   for (let i = 0; i < data.length; i++) {
   //     dataMap.set(data[i].isbn, data[i]);

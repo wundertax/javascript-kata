@@ -9,7 +9,7 @@ import magazines from "../data/magazines.csv";
 const App = () => {
   return (
     <div>
-      {/* <SearchBar></SearchBar> */}
+      <SearchBar data={books}></SearchBar>
       <div>
         <Table data={authors}></Table>
         <Table data={magazines}></Table>
