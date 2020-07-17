@@ -1,5 +1,5 @@
 import React from "react";
-import MapTable from "./MapTable";
+import JoinedTable from "./JoinedTable";
 import SearchBar from "./SearchBar";
 
 import authors from "../data/authors.csv";
@@ -45,11 +45,12 @@ const App = () => {
   const orderedMagazines = getOrderedList(updMagazines, uniqueHeader);
 
   const media = [...orderedBooks, ...orderedMagazines];
+  const files = [...books, ...magazines];
 
   return (
     <div>
-      {/* <SearchBar data={media} /> */}
-      <MapTable data={media} header={uniqueHeader}></MapTable>
+      <SearchBar data={files} />
+      <JoinedTable data={media} header={uniqueHeader} />
     </div>
   );
 };

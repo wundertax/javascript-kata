@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import MapTable from "./MapTable";
+import React, { useState } from "react";
 
 const SearchBar = ({ data }) => {
+  console.log(data);
   const [search, setSearch] = useState("");
-  // const [result, setResult] = useState("");
 
   const filterByKey = (key) => {
     if (search != "") {
@@ -14,9 +13,7 @@ const SearchBar = ({ data }) => {
   let res = {};
 
   if (result) {
-    // console.log(Object.values(result));
-    res = Object.values(result);
-    // console.log(Object.keys(res[0]));
+    res = Object.values(result)[0];
   }
 
   return (
@@ -31,10 +28,27 @@ const SearchBar = ({ data }) => {
           onChange={(event) => setSearch(event.target.value)}
         ></input>
       </form>
-      {/* <div>{res.map((item) => console.log(item))}</div> */}
-      <MapTable data={res} />
+      <div>
+        {Object.keys(res).map((key) => (
+          <div>
+            <div>{key}</div>
+            <div>{res[key]}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
+
+// _renderObject(){
+//     return Object.keys(ObjectTest).map(obj, i) => {
+//         return (
+//             <div>
+//                 id is: {ObjectTest[obj].id} ;
+//                 name is: {ObjectTest[obj].name}
+//             </div>
+//         )
+//     })
+// }
 
 export default SearchBar;

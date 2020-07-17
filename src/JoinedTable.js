@@ -1,6 +1,6 @@
 import React from "react";
 
-const MapTable = (props) => {
+const JoinedTable = (props) => {
   const header = props.header;
   const data = props.data;
 
@@ -26,4 +26,4 @@ const MapTable = (props) => {
   );
 };
 
-export default MapTable;
+export default JoinedTable;
