@@ -8,16 +8,16 @@ const JoinedTable = (props) => {
     <table>
       <thead>
         <tr>
-          {header.map((item) => (
-            <th key={item}>{item}</th>
+          {header.map((item, i) => (
+            <th key={i}>{item}</th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {data.map((row) => (
-          <tr key={row.isbn}>
-            {Object.values(row).map((cell) => (
-              <td key={cell}>{cell}</td>
+        {data.map((row, i) => (
+          <tr key={i}>
+            {Object.values(row).map((cell, i) => (
+              <td key={i}>{cell}</td>
             ))}
           </tr>
         ))}

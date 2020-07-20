@@ -7,25 +7,43 @@ import books from "../data/books.csv";
 import magazines from "../data/magazines.csv";
 
 const App = () => {
-  const getUniqueHeader = (arr1, arr2) => {
-    const arr1Header = Object.keys(arr1[0]);
-    const arr2Header = Object.keys(arr2[0]);
-    const totalHeader = arr1Header.concat(arr2Header);
+  // books.map((item) => {
+  //   console.log(item);
+  //   item.authors = item.authors.split(",");
+  // });
+
+  // magazines.map((item) => {
+  //   item.authors = item.authors.split(",");
+  // });
+
+  const getUniqueHeader = (...arrays) => {
+    let totalHeader = [];
+    for (let i = 0; i < arrays.length; i++) {
+      const arrHeader = Object.keys(arrays[i][0]);
+      totalHeader = [...totalHeader, ...arrHeader];
+    }
+    // Remove duplicate header items
     const uniqueHeader = [...new Set(totalHeader)];
     return uniqueHeader;
   };
-  const uniqueHeader = getUniqueHeader(books, magazines);
 
-  const addMissingProperty = (arr) => {
+  const addMissingProperty = (arr, uniqueHeader) => {
     const dataHeader = Object.keys(arr[0]);
-    const uniqProp = uniqueHeader.filter((prop) => !dataHeader.includes(prop));
-    // deep copy of the array
+    const uniqProp = uniqueHeader.filter(
+      (prop) => !uniqueHeader.includes(prop)
+    );
+    // Deep copy of the array
     const newArray = JSON.parse(JSON.stringify(arr));
+    // Transforming authors emails string into array
+    newArray.map((item) => {
+      item.authors = item.authors.split(",");
+    });
+
     newArray.map((item) => (item[uniqProp] = "-"));
     return newArray;
   };
 
-  // We need an ordered list to coordinate header and body of the table during redering
+  // We need an ordered list to coordinate header and body of the table during rendering
   const getOrderedList = (list, header) => {
     let orderedList = [];
     for (let i = 0; i < list.length; i++) {
@@ -39,10 +57,15 @@ const App = () => {
     return orderedList;
   };
 
-  const updBooks = addMissingProperty(books);
-  const orderedBooks = getOrderedList(updBooks, uniqueHeader);
-  const updMagazines = addMissingProperty(magazines);
-  const orderedMagazines = getOrderedList(updMagazines, uniqueHeader);
+  const mediaHeader = getUniqueHeader(books, magazines);
+  const authorsHeader = getUniqueHeader(authors);
+
+  // const toArray = books.map((book) => console.log(book.authors.split(",")));
+
+  const updBooks = addMissingProperty(books, mediaHeader);
+  const orderedBooks = getOrderedList(updBooks, mediaHeader);
+  const updMagazines = addMissingProperty(magazines, mediaHeader);
+  const orderedMagazines = getOrderedList(updMagazines, mediaHeader);
 
   const media = [...orderedBooks, ...orderedMagazines];
   const files = [...books, ...magazines];
@@ -50,7 +73,8 @@ const App = () => {
   return (
     <div>
       <SearchBar data={files} />
-      <JoinedTable data={media} header={uniqueHeader} />
+      <JoinedTable data={authors} header={authorsHeader}></JoinedTable>
+      <JoinedTable data={media} header={mediaHeader} />
     </div>
   );
 };
