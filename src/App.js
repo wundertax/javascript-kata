@@ -1,21 +1,12 @@
 import React from "react";
 import JoinedTable from "./JoinedTable";
 import SearchBar from "./SearchBar";
-
+import AddForm from "./AddForm";
 import authors from "../data/authors.csv";
 import books from "../data/books.csv";
 import magazines from "../data/magazines.csv";
 
 const App = () => {
-  // books.map((item) => {
-  //   console.log(item);
-  //   item.authors = item.authors.split(",");
-  // });
-
-  // magazines.map((item) => {
-  //   item.authors = item.authors.split(",");
-  // });
-
   const getUniqueHeader = (...arrays) => {
     let totalHeader = [];
     for (let i = 0; i < arrays.length; i++) {
@@ -60,19 +51,21 @@ const App = () => {
   const mediaHeader = getUniqueHeader(books, magazines);
   const authorsHeader = getUniqueHeader(authors);
 
-  // const toArray = books.map((book) => console.log(book.authors.split(",")));
-
   const updBooks = addMissingProperty(books, mediaHeader);
   const orderedBooks = getOrderedList(updBooks, mediaHeader);
   const updMagazines = addMissingProperty(magazines, mediaHeader);
   const orderedMagazines = getOrderedList(updMagazines, mediaHeader);
 
-  const media = [...orderedBooks, ...orderedMagazines];
+  const media = [...orderedBooks, ...orderedMagazines].sort();
   const files = [...books, ...magazines];
+
+  // Transforming authors emails string into array
+  files.map((item) => (item["authors"] = item["authors"].split(",")));
 
   return (
     <div>
       <SearchBar data={files} />
+      <AddForm />
       <JoinedTable data={authors} header={authorsHeader}></JoinedTable>
       <JoinedTable data={media} header={mediaHeader} />
     </div>

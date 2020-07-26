@@ -12,6 +12,7 @@ body {
 
 #app {
     flex: 1 0 auto;
+    margin: 20px;
 }
 
 .frame-conditions {
@@ -45,6 +46,53 @@ tr, td {
 }
 
 table, tr, td {
-    border: 1px solid blue;
+    border: 1px solid green;
     margin-top: 30px;
+}
+
+.search-bar {
+    background-color: lightgray;
+    padding: 20px
+}
+
+.result-media {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 80%;
+    font-size: 18px;
+}
+
+.result-media__wrapper {
+    background-color: white;
+    border: 1px solid green;
+    margin-bottom: 10px
+}
+
+.result-media__row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    line-height: 2;
+    padding: 10px;
+}
+
+.result-media__key {
+    min-width: 130px;
+    font-weight: bold;
+}
+
+.search-form {
+    display: flex;
+    margin-bottom: 20px;
+    width: 450px;
+}
+
+.search-label {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.search-button {
+    margin-left: auto;
+    margin-right: 0;
 }
