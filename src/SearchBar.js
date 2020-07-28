@@ -4,37 +4,49 @@ const SearchBar = ({ data }) => {
   const [firstTime, setFirstTime] = useState(true);
   const [searchByIsbn, setSearchByIsbn] = useState("");
   const [searchByEmail, setSearchByEmail] = useState("");
-  const [result, setResult] = useState("");
+  const [searchResult, setSearchResult] = useState("");
 
-  const handleIsbnClick = (event) => {
-    event.preventDefault();
+  // Function for resetting state when clicking on another search button.
+  const resetState = (searchType) => {
     setFirstTime(false);
-    setResult("");
-    setSearchByEmail("");
+    setSearchResult("");
+    // Switch to reset data in another input field.
+    switch (searchType) {
+      case "isbn":
+        setSearchByEmail("");
+        break;
+      case "authors":
+        setSearchByIsbn("");
+    }
+  };
+
+  // A function to search for books or magazines based on their ISBN number
+  const handleIsbnClick = (event) => {
     const isbn = "isbn";
+    event.preventDefault();
+    resetState(isbn);
+
     if (!searchByIsbn) {
       return;
     }
-
     const found = data.filter((item) => item[isbn] === searchByIsbn)[0];
     if (!found) {
       return;
     }
-    setResult([found]);
+    setSearchResult([found]);
   };
 
+  // A function to search for books or magazines based on the email of their author(s)
   const handleEmailClick = (event) => {
-    event.preventDefault();
-    setFirstTime(false);
-    setResult("");
-    setSearchByIsbn("");
-
     const authors = "authors";
+    event.preventDefault();
+    resetState(authors);
+
     if (!searchByEmail) {
       return;
     }
 
-    // Searching for a match/matches
+    // Searching for a match/matches using the nested loop.
     let listOfMedia = [];
     for (let i = 0; i < data.length; i++) {
       for (let j = 0; j < data[i][authors].length; j++) {
@@ -44,15 +56,15 @@ const SearchBar = ({ data }) => {
       }
     }
     if (listOfMedia.length === 0) {
-      document.getElementById("searchByEmail").style.outline = "2px dotted red";
       return;
     }
-    document.getElementById("searchByEmail").style.outline = "2px dotted green";
-    setResult(listOfMedia);
+    setSearchResult(listOfMedia);
   };
 
   return (
     <div className="search-bar">
+      <h3>Search through the lists of authors, books & magazines:</h3>
+
       {/* Form for searching by ISBN */}
       <form className="search-form">
         <label htmlFor="searchByIsbn" className="search-label">
@@ -61,7 +73,6 @@ const SearchBar = ({ data }) => {
         <input
           type="text"
           id="searchByIsbn"
-          placeholder="Enter ISBN..."
           value={searchByIsbn}
           onChange={(event) => setSearchByIsbn(event.target.value)}
         ></input>
@@ -80,7 +91,6 @@ const SearchBar = ({ data }) => {
         <input
           type="text"
           id="searchByEmail"
-          placeholder="Enter author's email..."
           value={searchByEmail}
           onChange={(event) => setSearchByEmail(event.target.value)}
         ></input>
@@ -94,20 +104,20 @@ const SearchBar = ({ data }) => {
       {/* Rendering search results: */}
       <div className="result-media">
         {firstTime ? (
-          <div>Search for something!</div>
-        ) : result ? (
-          result.map((media, i) => (
+          <div style={{ color: "green" }}>Search for something!</div>
+        ) : searchResult ? (
+          searchResult.map((media, i) => (
             <div className="result-media__wrapper" key={i}>
               {Object.keys(media).map((key, i) => (
                 <div className="result-media__row" key={i}>
-                  <div className="result-media__key">{key}</div>
+                  <div className="result-media__key">{key.toUpperCase()}</div>
                   <div className="result-media__data">{media[key]}</div>
                 </div>
               ))}
             </div>
           ))
         ) : (
-          <div style={{ color: "green" }}>Nothing found.</div>
+          <div style={{ color: "red" }}>Nothing found.</div>
         )}
       </div>
     </div>

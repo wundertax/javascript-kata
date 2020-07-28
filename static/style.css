@@ -96,3 +96,25 @@ table, tr, td {
     margin-left: auto;
     margin-right: 0;
 }
+
+.add-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: lightslategray;
+}
+
+.add-input {
+    margin: 10px;
+    width: 200px;
+}
+
+.add-button {
+    margin: 10px;
+    width: 200px;
+}
+
+.is-downloaded-message {
+    color: white;
+    padding: 20px;
+}

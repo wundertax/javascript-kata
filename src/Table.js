@@ -1,15 +1,14 @@
 import React from "react";
 
-const JoinedTable = (props) => {
+const Table = (props) => {
   const header = props.header;
   const data = props.data;
-
   return (
     <table>
       <thead>
         <tr>
           {header.map((item, i) => (
-            <th key={i}>{item}</th>
+            <th key={i}>{item.toUpperCase()}</th>
           ))}
         </tr>
       </thead>
@@ -26,4 +25,4 @@ const JoinedTable = (props) => {
   );
 };
 
-export default JoinedTable;
+export default Table;

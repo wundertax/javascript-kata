@@ -1,13 +1,26 @@
 import React from "react";
-import JoinedTable from "./JoinedTable";
+
+import authors from "../data/authors.csv";
+import booksFromCsv from "../data/books.csv";
+import magazinesFromCsv from "../data/magazines.csv";
+
+import Table from "./Table";
 import SearchBar from "./SearchBar";
 import AddForm from "./AddForm";
-import authors from "../data/authors.csv";
-import books from "../data/books.csv";
-import magazines from "../data/magazines.csv";
 
 const App = () => {
-  const getUniqueHeader = (...arrays) => {
+  // A function to transform the string of authors emails received from .csv into an array.
+  const splitEmailsStringToArray = (array) => {
+    // Deep copy of an array to avoid data mutation.
+    const newArray = JSON.parse(JSON.stringify(array));
+    newArray.map((item) => (item["authors"] = item["authors"].split(", ")));
+    return newArray;
+  };
+  const books = splitEmailsStringToArray(booksFromCsv);
+  const magazines = splitEmailsStringToArray(magazinesFromCsv);
+
+  // A function to compose a unique header for multiple arrays with possibly duplicate fields.
+  const composeHeader = (...arrays) => {
     let totalHeader = [];
     for (let i = 0; i < arrays.length; i++) {
       const arrHeader = Object.keys(arrays[i][0]);
@@ -18,23 +31,7 @@ const App = () => {
     return uniqueHeader;
   };
 
-  const addMissingProperty = (arr, uniqueHeader) => {
-    const dataHeader = Object.keys(arr[0]);
-    const uniqProp = uniqueHeader.filter(
-      (prop) => !uniqueHeader.includes(prop)
-    );
-    // Deep copy of the array
-    const newArray = JSON.parse(JSON.stringify(arr));
-    // Transforming authors emails string into array
-    newArray.map((item) => {
-      item.authors = item.authors.split(",");
-    });
-
-    newArray.map((item) => (item[uniqProp] = "-"));
-    return newArray;
-  };
-
-  // We need an ordered list to coordinate header and body of the table during rendering
+  // We need an ordered list to coordinate header and body of the table during rendering.
   const getOrderedList = (list, header) => {
     let orderedList = [];
     for (let i = 0; i < list.length; i++) {
@@ -47,27 +44,23 @@ const App = () => {
     }
     return orderedList;
   };
+  // Creating headers for tables rendering.
+  const mediaHeader = composeHeader(books, magazines);
+  const authorsHeader = Object.keys(authors[0]);
 
-  const mediaHeader = getUniqueHeader(books, magazines);
-  const authorsHeader = getUniqueHeader(authors);
+  const orderedBooks = getOrderedList(books, mediaHeader);
+  const orderedMagazines = getOrderedList(magazines, mediaHeader);
 
-  const updBooks = addMissingProperty(books, mediaHeader);
-  const orderedBooks = getOrderedList(updBooks, mediaHeader);
-  const updMagazines = addMissingProperty(magazines, mediaHeader);
-  const orderedMagazines = getOrderedList(updMagazines, mediaHeader);
-
+  // Creating a composed array of media, sorted by title.
+  // This array is passed later to the Table component for rendering.
   const media = [...orderedBooks, ...orderedMagazines].sort();
-  const files = [...books, ...magazines];
-
-  // Transforming authors emails string into array
-  files.map((item) => (item["authors"] = item["authors"].split(",")));
 
   return (
     <div>
-      <SearchBar data={files} />
-      <AddForm />
-      <JoinedTable data={authors} header={authorsHeader}></JoinedTable>
-      <JoinedTable data={media} header={mediaHeader} />
+      <SearchBar data={[...books, ...magazines]} />
+      <AddForm data={authors} />
+      <Table data={authors} header={authorsHeader} />
+      <Table data={media} header={mediaHeader} />
     </div>
   );
 };
