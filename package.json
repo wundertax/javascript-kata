@@ -150,6 +150,11 @@
           "node/no-unpublished-require": "off"
         }
       }
-    ]
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
   }
 }
