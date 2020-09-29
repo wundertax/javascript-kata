@@ -23,9 +23,9 @@
   "author": "Anton Pryshchepa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denkwai/javascript-kata-1/issues"
+    "url": "https://github.com/wundertax/javascript-kata/issues"
   },
-  "homepage": "https://github.com/denkwai/javascript-kata-1#readme",
+  "homepage": "https://github.com/wundertax/javascript-kata#readme",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
