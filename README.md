@@ -1,47 +1,35 @@
-# JavaScript Kata - Part 1: Library
+# JavaScript Kata
 
 Code kata in JavaScript where you have to write a library of books and magazines.
 
-A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.
+[A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.](https://en.wikipedia.org/wiki/Kata_(programming))
 
-* [Topic](#topic)
 * [Frame conditions](#frame-conditions)
 * [Tasks](#tasks)
 * [Procedure](#procedure)
 * [License](#license)
-
-## Topic
-
-You have to implement an abstracted and simple library system.
 
 ## Frame conditions
 
 1. You have exact __2.5 hours__ of time - __no minute longer__.
    If you reach this time limit stop your work immediately.
    It is one part of the kata to respect this time limit.
-
-2. There are no restrictions on how to use the provided time.
+   There are no restrictions on how to use the provided time.
    If you want to code the entire time, take a break or a cigaret - it’s up to you.
 
-3. There is no right or wrong. Also you don't need to "complete" the task. The amount of code/functionalities depends on your experience level. Of course the more you do the best for your evaluation, as long as you keep good code quality.
+2. There is no complete or incomplete, most likely it'll be impossible to close all the tasks in the first run (that's the point of kata as a type of practice). Keep in mind following priorities though:
+   1. __Code quality and structure__
+   2. Functionality
+   3. UI/UX
 
-4. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend ...
-   **BUT:** You are not allowed to do pair programming.
+4. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend...
+   **BUT:** You are NOT allowed to do pair programming.
    **AND** If you have already done this kata before to have a look at your previous implementation.
 
-5. Keep the following __priorities__ in mind while you implementing - in the mentioned order:
-   1. Code quality
-   2. Usage of object oriented methods
-   3. Functionality
-
-6. Given resources:
-   > **Hint:** There is a reason why there are so many books and authors in german with [umlauts](https://en.wikipedia.org/wiki/Germanic_umlaut).
-
+5. Given resources:
    * [`authors.csv`](data/authors.csv): Contains authors with its `email`, `firstName` and `lastName`.
    * [`books.csv`](data/books.csv): Contains books with its `title`, `description`, one or more `authors` and an `isbn`.
    * [`magazines.csv`](data/magazines.csv): Contains magazines with its `title`, one or more `authors`, a `publishedAt` and an `isbn`.
-
-<!-- Develop your code based on [ECMAScript 2018 (ES2018)](http://www.ecma-international.org/ecma-262/9.0/index.html). -->
 
 ## Tasks
 
@@ -50,22 +38,21 @@ You have to implement an abstracted and simple library system.
 
 ### Main tasks
 
-1. Print out all books and magazines with all their details sorted by `title`. (This sort should be done for books and magazines together.)
+1. Parse the data from the given CSV files in a meaningful structure.
 
-2. Print out all books and magazines with all their details (with a meaningful output format). Implement an interactive user interface for it.
-   > **Hint**: Do not call `printBooks(...)` first and then `printMagazines(...)` 😉
+2. Print out a joint list of books and magazines with all their details sorted by `title`.
 
-3. Find a book or magazine by its `isbn`. Implement an interactive user interface for it.
+3. Implement search:
+   1. By `isbn`
+   2. By `authors`' email
 
-4. Find all books and magazines by their `authors`’ email. Implement an interactive user interface for it.
-
-
+4. Add unit tests.
 
 ### Optional tasks
 
-> **Hint:** Optional means optional.
+1. Implement adding a book/magazine to the data structure of your software and export it to a new CSV files.
 
-1. Write Unit tests for one or more methods.
+2. Implement exporting of the new list to a CSV file.
 
 ## Procedure
 
@@ -75,20 +62,12 @@ You have to implement an abstracted and simple library system.
       2. Clone this fork to your computer:
          ```bash
          git clone <your github url>
-         # Example: git clone https://github.com/blaubaer/nodejs-kata-1.git
+         # Example: git clone https://github.com/wundertax/javascript-kata.git
          ```
 
-   2. Clone this repository with local branch:
-      ```bash
-      git clone https://github.com/wundertax/javascript-kata.git
-      git checkout -b run-<yourname>-<iteration number>
-      # Example: git checkout -b run-blaubaer-1
-      ```
-
-   3. Just download it from [here](https://github.com/wundertax/javascript-kata/archive/master.zip)
+   2. Just download it from [here](https://github.com/wundertax/javascript-kata/archive/master.zip)
 
 2. Open in your favorite text editor/IDE.
-   > **Hint**: We recommend [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea) or [Visual Studio Code](https://code.visualstudio.com).
 
 3. Start the kata.
 
@@ -98,7 +77,7 @@ You have to implement an abstracted and simple library system.
 
 ## FAQ
 
-##### How to run your application?
+### How to run your application?
 
 1. Install dependencies:
    ```bash
@@ -112,14 +91,14 @@ You have to implement an abstracted and simple library system.
    
    This command will run dev server. After this the project is accessible on [http://localhost:9000/](http://localhost:9000/)
 
-##### What's the structure of the boilerplate?
+#### What's the structure of the boilerplate?
 
 > **Important!** `react` and `react-dom` are already included in `package.json`. If you want to use other libraries/frameworks, you have to install and include them manually.
 
 1. [`webpack`](https://webpack.js.org/) for building and bundling:
-   * `.js` and `.css` files work out of the box
-   * entry point is `src/index.js` file
-   * bundle is being written in `dist/main.js`
+   * `.js` and `.css` files work out of the box.
+   * entry point is `src/index.js` file.
+   * bundle is being written in `dist/main.js`.
 
 2. [`jest`](https://jestjs.io/) for testing.
 
@@ -131,10 +110,9 @@ You have to implement an abstracted and simple library system.
 
 4. [`babel`](https://babeljs.io/) for code transpiling:
    * preconfigured `preset-env` and `preset-react`
-
 > **Hint:** if you prefer using another build tool/bundler/test suite/etc: feel free to modify whatever you need.
 
-##### How to lint your code?
+#### How to lint your code?
 
 For code check:
 ```bash
@@ -146,33 +124,10 @@ To fix the linting errors:
 npm run lint:fix
 ```
 
-##### How to run your tests?
-
+#### How to run your tests?
 ```bash
 npm run test
 ```
 
 ## License
-
 See [LICENSE](LICENSE) file.
-
-# Checklist
-1. Are the api calls in parallel?
-[ ] Yes
-[ ] No, in series.
-[ ] N/A
-
-1. Are there code formatting inconsistencies? How many?
-[ ] Yes, more than 5.
-[ ] Yes, less than 5.
-[ ] No.
-
-1. How is the search triggered?
-[ ] Keyboard input.
-[ ] Button click.
-
-1. Does the ```enter``` key triggers the search?
-[ ] Yes, done correctly with form submit.
-[ ] Yes, but done incorrectly.
-[ ] No.
-[ ] N/A
