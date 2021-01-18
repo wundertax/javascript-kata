@@ -22,9 +22,10 @@ Code kata in JavaScript where you have to write a library of books and magazines
    2. Functionality.
    3. UI/UX.
 
-4. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend...
-   **BUT:** You are NOT allowed to do pair programming.  
-   **AND:** If you have already done this kata before to have a look at your previous implementation.  
+4. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend...  
+   **BUT you're NOT allowed to:**
+      * do pair programming
+      * have a look at your previous implementation of this kata if you've done it before
 
 5. Given resources:
    * [`authors.csv`](data/authors.csv): Contains authors with its `email`, `firstName` and `lastName`.
