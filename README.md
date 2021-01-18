@@ -18,13 +18,13 @@ Code kata in JavaScript where you have to write a library of books and magazines
    If you want to code the entire time, take a break or a cigaret - it’s up to you.  
 
 2. There is no complete or incomplete, most likely it'll be impossible to close all the tasks in the first run (that's the point of kata as a type of practice). Keep in mind following priorities though:
-   1. __Code quality and structure__
-   2. Functionality
-   3. UI/UX
+   1. __Code quality and structure__.
+   2. Functionality.
+   3. UI/UX.
 
 4. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend...
    **BUT:** You are NOT allowed to do pair programming.  
-   **AND** If you have already done this kata before to have a look at your previous implementation.  
+   **AND:** If you have already done this kata before to have a look at your previous implementation.  
 
 5. Given resources:
    * [`authors.csv`](data/authors.csv): Contains authors with its `email`, `firstName` and `lastName`.
@@ -40,17 +40,17 @@ Code kata in JavaScript where you have to write a library of books and magazines
 
 1. Parse the data from the given CSV files in a meaningful structure.
 
-2. Print out a joint list of books and magazines with all their details sorted by `title`.
+2. Print out a single list of books and magazines with all their details sorted by `title`.
 
 3. Implement search:
-   1. By `isbn`
-   2. By `authors`' email
+   1. By `isbn`.
+   2. By `authors`' email.
 
 4. Add unit tests.
 
 ### Optional tasks
 
-1. Implement adding a book/magazine to the data structure of your software and export it to a new CSV files.
+1. Implement adding a book/magazine to the data structure of your software.
 
 2. Implement exporting of the new list to a CSV file.
 
