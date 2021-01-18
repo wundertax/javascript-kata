@@ -2,7 +2,7 @@
 
 Code kata in JavaScript where you have to write a library of books and magazines.
 
-[A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.](https://en.wikipedia.org/wiki/Kata_(programming))
+A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.
 
 * [Topic](#topic)
 * [Frame conditions](#frame-conditions)
@@ -16,20 +16,20 @@ You have to implement an abstracted and simple library system.
 
 ## Frame conditions
 
-1. You have exact 2.5 hours of time - no minute longer.
+1. You have exact __2.5 hours__ of time - __no minute longer__.
    If you reach this time limit stop your work immediately.
    It is one part of the kata to respect this time limit.
 
 2. There are no restrictions on how to use the provided time.
    If you want to code the entire time, take a break or a cigaret - it’s up to you.
 
-3. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend ...
-   **BUT:** You are not allowed to do [pair programming](https://en.wikipedia.org/wiki/Pair_programming).
+3. There is no right or wrong. Also you don't need to "complete" the task. The amount of code/functionalities depends on your experience level. Of course the more you do the best for your evaluation, as long as you keep good code quality.
+
+4. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend ...
+   **BUT:** You are not allowed to do pair programming.
    **AND** If you have already done this kata before to have a look at your previous implementation.
 
-4. Develop your code based on [ECMAScript 2018 (ES2018)](http://www.ecma-international.org/ecma-262/9.0/index.html).
-
-5. Keep the following priorities in mind while you implementing - in the mentioned order:
+5. Keep the following __priorities__ in mind while you implementing - in the mentioned order:
    1. Code quality
    2. Usage of object oriented methods
    3. Functionality
@@ -41,6 +41,8 @@ You have to implement an abstracted and simple library system.
    * [`books.csv`](data/books.csv): Contains books with its `title`, `description`, one or more `authors` and an `isbn`.
    * [`magazines.csv`](data/magazines.csv): Contains magazines with its `title`, one or more `authors`, a `publishedAt` and an `isbn`.
 
+<!-- Develop your code based on [ECMAScript 2018 (ES2018)](http://www.ecma-international.org/ecma-262/9.0/index.html). -->
+
 ## Tasks
 
 * [Main tasks](#main-tasks)
@@ -48,28 +50,22 @@ You have to implement an abstracted and simple library system.
 
 ### Main tasks
 
-1. Your software should read all data from the given CSV files in a meaningful structure.
+1. Print out all books and magazines with all their details sorted by `title`. (This sort should be done for books and magazines together.)
 
-2. Print out all books and magazines (could be a GUI, console, …) with all their details (with a meaningful output format).
+2. Print out all books and magazines with all their details (with a meaningful output format). Implement an interactive user interface for it.
    > **Hint**: Do not call `printBooks(...)` first and then `printMagazines(...)` 😉
 
-3. Find a book or magazine by its `isbn`.
+3. Find a book or magazine by its `isbn`. Implement an interactive user interface for it.
 
-4. Find all books and magazines by their `authors`’ email.
+4. Find all books and magazines by their `authors`’ email. Implement an interactive user interface for it.
 
-5. Print out all books and magazines with all their details sorted by `title`.
-   This sort should be done for books and magazines together.
+
 
 ### Optional tasks
 
 > **Hint:** Optional means optional.
 
 1. Write Unit tests for one or more methods.
-
-2. Implement an interactive user interface for one or more of the main tasks mentioned above.
-   This could be done by a website, on the console, etc.
-
-3. Add a book and a magazine to the data structure of your software and export it to a new CSV files.
 
 ## Procedure
 
