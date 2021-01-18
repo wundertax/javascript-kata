@@ -11,11 +11,11 @@ Code kata in JavaScript where you have to write a library of books and magazines
 
 ## Frame conditions
 
-1. You have exact __2.5 hours__ of time - __no minute longer__.
-   If you reach this time limit stop your work immediately.
-   It is one part of the kata to respect this time limit.
-   There are no restrictions on how to use the provided time.
-   If you want to code the entire time, take a break or a cigaret - it’s up to you.
+1. You have exact __2.5 hours__ of time - __no minute longer__.  
+   If you reach this time limit stop your work immediately.  
+   It is one part of the kata to respect this time limit.  
+   There are no restrictions on how to use the provided time.  
+   If you want to code the entire time, take a break or a cigaret - it’s up to you.  
 
 2. There is no complete or incomplete, most likely it'll be impossible to close all the tasks in the first run (that's the point of kata as a type of practice). Keep in mind following priorities though:
    1. __Code quality and structure__
@@ -23,8 +23,8 @@ Code kata in JavaScript where you have to write a library of books and magazines
    3. UI/UX
 
 4. This is a real world situation. You are allowed to consult the Internet, use every library you want, call a friend...
-   **BUT:** You are NOT allowed to do pair programming.
-   **AND** If you have already done this kata before to have a look at your previous implementation.
+   **BUT:** You are NOT allowed to do pair programming.  
+   **AND** If you have already done this kata before to have a look at your previous implementation.  
 
 5. Given resources:
    * [`authors.csv`](data/authors.csv): Contains authors with its `email`, `firstName` and `lastName`.
