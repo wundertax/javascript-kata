@@ -155,3 +155,24 @@ npm run test
 ## License
 
 See [LICENSE](LICENSE) file.
+
+# Checklist
+1. Are the api calls in parallel?
+[ ] Yes
+[ ] No, in series.
+[ ] N/A
+
+1. Are there code formatting inconsistencies? How many?
+[ ] Yes, more than 5.
+[ ] Yes, less than 5.
+[ ] No.
+
+1. How is the search triggered?
+[ ] Keyboard input.
+[ ] Button click.
+
+1. Does the ```enter``` key triggers the search?
+[ ] Yes, done correctly with form submit.
+[ ] Yes, but done incorrectly.
+[ ] No.
+[ ] N/A
