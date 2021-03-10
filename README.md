@@ -41,7 +41,7 @@ Code kata in JavaScript where you have to write a library of books and magazines
 
 1. Parse the data from the given CSV files in a meaningful structure.
 
-2. Print out a single list of books and magazines with all their details sorted by `title`.
+2. Print out a merged list of books and magazines with all their details sorted by `title`.
 
 3. Implement search:
    1. By `isbn`.
