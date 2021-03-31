@@ -110,7 +110,8 @@ Code kata in JavaScript where you have to write a library of books and magazines
    * supports live reload
 
 4. [`babel`](https://babeljs.io/) for code transpiling:
-   * preconfigured `preset-env` and `preset-react`
+   * preconfigured with `preset-env` and `preset-react`.
+   * `plugin-transform-runtime` plugin to support `async`/`await`.
 > **Hint:** if you prefer using another build tool/bundler/test suite/etc: feel free to modify whatever you need.
 
 #### How to lint your code?
